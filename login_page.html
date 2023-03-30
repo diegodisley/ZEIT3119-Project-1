@@ -1,19 +1,41 @@
 <!DOCTYPE html>
 <html>
     <body>
+        <div>
+            
         <link rel="stylesheet" href="proj.css">
-        <div class="container">
-            <hr>
-        
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Enter Email" name="email" id="email" required><br>
-        
-            <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
-            <hr>
-        
-            <a href="register_page.html" class="button">Register</a>
-            <a href="home.html" class="button">Sign in</a>
+        <div class="navbar">
+            <a href="help_page.html" class="button">Help</a>
+            <a href="about_us_page.html" class="button">About us</a> 
+            <a href="home.html" class="button">Home</a>
+            <a href="login_page.html" class="button">Sign out</a>
+            <a href="my_profile.html" class="button">My profile</a>
+            <a href="javascript:window.history.back();">Back</a>
         </div>
+
+        <div class="main">
+            <h1>Add new transaction</h1>
+
+            <form action="/submit-form" method="post" enctype="multipart/form-data">
+                <label for="invoice-number">Invoice Number:</label>
+                <input type="text" id="invoice-number" name="invoice-number"><br>
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price"><br>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date"><br>
+                <label for="category">Category:</label>
+                <select id="category" name="category">
+                    <option value="business">Business</option>
+                    <option value="personal">Personal</option>
+                    <option value="education">Education</option>
+                    <option value="etc">ETC</option>
+                </select><br>
+                <label for="image">Upload Receipt:</label>
+                <input type="file" id="image" name="image">
+                <br>
+                <input type="submit" value="Submit">
+              </form>
+        </div>
+
     </body>
 </html>
