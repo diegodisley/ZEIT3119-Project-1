@@ -1,0 +1,109 @@
+* {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body {
+    background-color: #a2a8d3;
+}
+h1 {
+    color: #e7eaf6;
+    text-align: centre;
+    font-size: 150%;
+    margin: auto;
+}
+h2 {
+    color: #38598b;
+}
+h3 {
+    color: #113f67;
+}
+/* Style the navigation bar */
+.navbar {
+    overflow: auto;
+    background-color: #8b87f7;
+    position: absolute; /* Set the navbar to fixed position */
+    top: 1%; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+}
+/* Navbar links */
+.navbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 24px;
+}
+/* Navbar links on mouse-over */
+.navbar a:hover {
+    background: #ddd;
+    color: #38598b;
+}
+/* Current/active navbar link */
+.active {
+    background-color: #dbf1f1;
+    color: #38598b;
+}
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+    .navbar a {
+      float: none;
+      display: block;
+    }
+}
+.white-button {
+    background-color: rgb(255, 255, 255);
+    color: rgba(73, 1, 104, 0.94);
+    border: 2px rgb(92, 92, 211);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 100%;
+    font-weight: 800;
+    cursor: pointer; /*change cursor to pointer*/
+    border-radius:20px;
+}
+
+.blue-button {
+    background-color: rgb(92, 92, 211);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 150%;
+    font-weight: 800;
+    cursor: pointer;
+    border-radius:30px;
+}
+
+.container {
+    text-align: center;
+    padding: 16px;
+    margin-top: 30px;
+    font-size: xx-large; 
+    color: rgba(69, 19, 139, 0.858);
+    /*height: 1500px; /* Used in this example to enable scrolling */
+
+}
+.blue-text-box {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    background-color:rgba(71, 71, 227, 0.887); 
+    color: white; 
+    font-size: 80%;
+}
+.topic {
+    text-align: center;
+    font-weight: 800;
+    background-color: rgba(93, 93, 206, 0.745);
+    color: white;
+    font-size: 35px;
+    border-radius:30px;
+    padding: 10px 20px 10px 20px;
+}
+.main {
+    text-align: center;
+    padding: 16px;
+    margin-top: 30px;
+    /*height: 1500px; /* Used in this example to enable scrolling */
+}
