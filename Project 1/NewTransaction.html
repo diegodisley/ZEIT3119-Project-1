@@ -13,7 +13,7 @@
 <!-- Navigation Bar -->
 <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
   <div class="container-fluid">
-      <img class="mb-4" src="logo.png" alt="Logo" width="60" height="50">
+    <img class="img-fluid" src="logo.png" alt="Logo" width="55" height="55">
       <a class="navbar-brand" href="index.html">
           Receipt Recorder
       </a>
@@ -69,8 +69,36 @@
       <div class="h-100 p-5 bg-body-tertiary border rounded-5">
         <center>
           <h2>Add New Transaction</h2>
-          <br><br>
-          <a href="NewTransaction.html" class="button">Add new Transaction</a>
+          <hr><br>
+            <form>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="Invoice Number">
+                  <label for="floatingInput">Invoice Number</label>
+                </div>
+                <div class="form-floating">
+                  <input type="text" class="form-control" id="floatingInput" placeholder="Price">
+                  <label for="floatingInput">Price</label>
+                </div>
+                <div class="form-floating">
+                  <input type="date" class="form-control" id="floatingInput" placeholder="Date">
+                  <label for="floatingInput">Date</label>
+                </div>
+                <div class="form-floating">
+                  <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+                    <option selected>Choose</option>
+                    <option value="1">Personal</option>
+                    <option value="2">Business</option>
+                    <option value="3">Education</option>
+                    <option value="4">ETC</option>
+                  </select>
+                  <label for="floatingSelect">Category</label>
+                </div>
+                <div>
+                  <label for="formFile" class="form-label">Attachment</label>
+                  <input class="form-control" type="file" id="formFile">
+                </div>
+                <a href="PreviousTransaction.html" class="button">Save Changes</a>
+            </form>
         </center>
       </div>
     </div>
