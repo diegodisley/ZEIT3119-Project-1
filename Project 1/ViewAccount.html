@@ -28,14 +28,24 @@
           <a class="nav-link" href="about.html">About Us</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
+            Transactions
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="TotalSpending.html">View Total Spending</a></li>
+            <li><a class="dropdown-item" href="NewTransaction.html">Add New Transaction</a></li>
+            <li><a class="dropdown-item" href="PreviousTransaction.html">Edit Previous Transactions</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></i>
             Account
           </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="ViewAccount.html">View Account</a></li>
             <li><a class="dropdown-item" href="EditAccount.html">Edit Account</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+            <li><a class="dropdown-item" href="index.html">Sign out</a></li>
           </ul>
         </li>
       </ul>
@@ -46,16 +56,30 @@
 
 
 
-
-<div class="main">
-  <h1>My profile</h1>
-  <p>First name</p>
-  <p>Last name</p>
-  <p>Date of birth</p>
-  <p>Email</p>
+<div class="container min-vh-100 d-flex justify-content-center align-items-center">
+  <div class="row align-items-md-stretch">
+    <div class="col-md-12">
+      <div class="h-100 p-5 bg-body-tertiary border rounded-5">
+        <center>
+          <h2>My Profile</h2>
+          <br><hr><br>
+          <form>
+            <p>First name: Johnathan</p>
+            <p>Last name: Appleseed</p>
+            <p>Date of birth: 1 Jan 97</p>
+            <p>Email: johnoappleman@gmail.com</p>
+            <a href="EditAccount.html" class="button">Edit</a>
+          </form>
+        </center>
+      </div>
+    </div>
+  </div>
 </div>
 
-<a href="my_profile_edit.html" class="button">Edit</a>
+
+
+
+
 
 
 <!-- Java Script -->
