@@ -1,30 +1,53 @@
 html,
+/* font style */
+* {
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
 body {
   height: 100%;
   background-color: #a2a8d3;
 }
 
+/* Text color and size */
+h1 {
+  font-weight: 900;
+  color: #190063ed;
+}
+h2 {
+  font-weight: 700;
+  color: #29098bed;
+}
+h3 {
+  font-weight: 500;
+  color: #1824c3ed;
+}
+h4 {
+  color: #410090ed;
+}
+p {
+  font-size: larger;
+}
+
+/* form style */
 .form-signin {
   max-width: 330px;
   padding: 15px;
 }
-
 .form-signin .form-floating:focus-within {
   z-index: 2;
 }
-
 .form-signin input[type="email"] {
   margin-bottom: -1px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-
 .form-signin input[type="password"] {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
 
+/* Style for button */
 .button {
         background-color: #1c87c9;
         border: none;
@@ -38,11 +61,6 @@ body {
         cursor: pointer;
         border-radius: 10px;
       }
-
-
-* {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-}
 
 /* Style the navigation bar */
 .navbar {
@@ -63,22 +81,3 @@ body {
     background: #ddd;
     color: #38598b;
 }
-h1 {
-  font-weight: 900;
-  color: #190063ed;
-}
-h2 {
-  font-weight: 700;
-  color: #29098bed;
-}
-h3 {
-  font-weight: 500;
-  color: #1824c3ed;
-}
-h4 {
-  color: #410090ed;
-}
-p {
-  font-size: larger;
-}
-
