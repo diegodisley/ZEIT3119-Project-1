@@ -70,7 +70,18 @@
             <div class="h-100 p-5 bg-body-tertiary border rounded-5">
                 <center>
                     <h2>View Previous Transactions</h2>
-                    <hr><table class="table table-hover" style="text-align:center">
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Sort by
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Category</a></li>
+                            <li><a class="dropdown-item" href="#">Invoice ID</a></li>
+                            <li><a class="dropdown-item" href="#">Price</a></li>
+                            <li><a class="dropdown-item" href="#">Date</a></li>
+                        </ul>
+                    </div>
+                    <hr><table class="table table-hover" style="text-align:center" id="transactionsTable">
                         <thead>
                           <tr>
                             <th>Transaction ID</th>
@@ -88,7 +99,7 @@
                             <td>18/04/2019</td>
                             <td>$55</td>
                             <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
-                            <td><button style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button onclick="deleteRow(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
                           </tr>
                           <tr>
                             <td>000002</td>
@@ -96,7 +107,7 @@
                             <td>31/05/2019</td>
                             <td>$105</td>
                             <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
-                            <td><button style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button onclick="deleteRow(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
                           </tr>
                           <tr>
                             <td>000003</td>
@@ -104,7 +115,7 @@
                             <td>25/07/2019</td>
                             <td>$75</td>
                             <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
-                            <td><button style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button onclick="deleteRow(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
                           </tr>
                           <tr>
                             <td>000004</td>
@@ -112,7 +123,7 @@
                             <td>27/07/2019</td>
                             <td>$85</td>
                             <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
-                            <td><button style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button onclick="deleteRow(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
                           </tr>
                           <tr>
                             <td>000005</td>
@@ -120,7 +131,7 @@
                             <td>01/09/2019</td>
                             <td>$205</td>
                             <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
-                            <td><button style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button onclick="deleteRow(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
                           </tr>
                           <tr>
                             <td>000006</td>
@@ -128,7 +139,7 @@
                             <td>13/10/2019</td>
                             <td>$45</td>
                             <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
-                            <td><button style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                            <td><button onclick="deleteRow(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
                           </tr>
                         </tbody>
                       </table>
@@ -138,12 +149,46 @@
     </div>
 </div>
 
+<!-- Footer -->
+<footer class="bg-light text-center text-lg-start">
+    <div class="container p-1">
+      <div class="row">
+        <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+            <img class="img-fluid" src="logo.png" alt="Logo" width="55" height="55">
+            &copy; 2023 Receipt Recorder Company, Inc
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+        </div>
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+          <ul class="list-unstyled mb-0">
+            <li>
+              <a href="TermsCondition.html" class="text-dark" style="color: rgb(27, 0, 0); text-decoration: none;">Terms & Condition</a>
+            </li>
+            <li>
+                <a href="PrivacyPolicy.html" class="text-dark" style="color: rgb(27, 0, 0); text-decoration: none;">Privacy Policy</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- End of Footer -->
+
 <!-- Java Script -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+<script>
+    /*
+    The code below will delete the entire row of transaction data
+    */
+    function deleteRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("transactionsTable").deleteRow(i);
+    }
+</script>
 
 </body>
 </html>
