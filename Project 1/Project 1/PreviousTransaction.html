@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Previous Transaction</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css"rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" type="text/css" href="CSS\style.css">
+        <link rel="icon" href="Images\Logo.png" type="image/x-icon">
+    </head>
+    <body>
+        <!-- Navigation Bar -->
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <img class="img-fluid" src="Images\logo.png" alt="Logo" width="55" height="55">
+                <a class="navbar-brand" href="index.html">
+                    Receipt Recorder
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="homepage.html"><i class="fa-solid fa-house"></i>
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="help.html"><i class="fa-solid fa-circle-question"></i>
+                                Help
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html"><i class="fa-solid fa-users"></i>
+                                About Us
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-bars"></i>
+                                Transactions
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="TotalSpending.html">View Total Spending</a></li>
+                                <li><a class="dropdown-item" href="NewTransaction.html">Add New Transaction</a></li>
+                                <li><a class="dropdown-item" href="PreviousTransaction.html">View Previous Transactions</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fa-solid fa-user"></i>
+                                Account
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="ViewAccount.html">View Account</a></li>
+                                <li><a class="dropdown-item" href="EditAccount.html">Edit Account</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="index.html">Sign out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- End Navigation Bar -->
+
+        <!-- Main content -->
+        <div class="container min-vh-100 d-flex justify-content-center align-items-center">
+            <div class="row align-items-md-stretch">
+                <div class="col-md-12">
+                    <div class="h-100 p-5 bg-body-tertiary border rounded-5">
+                        <center>
+                            <h2>View Previous Transactions</h2>
+                            <div class="btn-group">
+                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sort by
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Category</a></li>
+                                    <li><a class="dropdown-item" href="#">Invoice ID</a></li>
+                                    <li><a class="dropdown-item" href="#">Price</a></li>
+                                    <li><a class="dropdown-item" href="#">Date</a></li>
+                                </ul>
+                            </div>
+                            <hr><table class="table table-hover" style="text-align:center" id="transactionsTable">
+                                <thead>
+                                <tr>
+                                    <th>Transaction ID</th>
+                                    <th>Category</th>
+                                    <th>Date</th>
+                                    <th>Price</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>000001</td>
+                                    <td>Business</td>
+                                    <td>18/04/2019</td>
+                                    <td>$55</td>
+                                    <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
+                                    <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>000002</td>
+                                    <td>Education</td>
+                                    <td>31/05/2019</td>
+                                    <td>$105</td>
+                                    <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
+                                    <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>000003</td>
+                                    <td>ETC</td>
+                                    <td>25/07/2019</td>
+                                    <td>$75</td>
+                                    <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
+                                    <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>000004</td>
+                                    <td>Personal</td>
+                                    <td>27/07/2019</td>
+                                    <td>$85</td>
+                                    <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
+                                    <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>000005</td>
+                                    <td>Personal</td>
+                                    <td>01/09/2019</td>
+                                    <td>$205</td>
+                                    <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
+                                    <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>000006</td>
+                                    <td>ETC</td>
+                                    <td>13/10/2019</td>
+                                    <td>$45</td>
+                                    <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
+                                    <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-center text-lg-start" style="background-color:#0c0716; color: white;">
+            <div class="container p-1">
+                <div class="row">
+                    <div class="col-lg-6 me-auto mb-2 mb-lg-0">
+                        <img class="img-fluid" src="Images\logo.png" alt="Logo" width="55" height="55">
+                        &copy; 2023 Receipt Recorder Company, Inc
+                    </div>
+                    <div class="col-lg-3">
+                    </div>
+                    <div class="col-lg-3">
+                        <ul class="list-unstyled mb-0">
+                            <li>
+                                <a href="#" class="text-light" style="text-decoration: none;">Terms & Condition</a>
+                            </li>
+                            <li>
+                                <a href="#" class="text-light" style="text-decoration: none;">Privacy Policy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End of Footer -->
+
+        <!-- Java Script -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            /*
+            The code below will delete the entire row of transaction data
+            */
+            function deleteRow(r) {
+                var i = r.parentNode.parentNode.rowIndex;
+                document.getElementById("transactionsTable").deleteRow(i);
+            }
+            /*
+            The code below will ask confirmation from user
+            */
+            function confirmDelete(r) {
+                let text = "Are you sure that you want to delete the record?";
+                if (confirm(text) == true) {
+                    deleteRow(r)
+                }
+            }
+        </script>
+
+    </body>
+</html>
