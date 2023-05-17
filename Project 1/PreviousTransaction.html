@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"></html>
     <head>
+        <title>View Transactions</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Previous Transaction</title>
@@ -8,8 +9,9 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" type="text/css" href="CSS\style.css">
         <link rel="icon" href="Images\Logo.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     </head>
-    <body>
+    <body onload="displayTransactions()">
         <!-- Navigation Bar -->
         <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
@@ -63,7 +65,7 @@
             </div>
         </nav>
         <!-- End Navigation Bar -->
-
+        
         <!-- Main content -->
         <div class="container min-vh-100 d-flex justify-content-center align-items-center">
             <div class="row align-items-md-stretch">
@@ -82,7 +84,7 @@
                                     <li><a class="dropdown-item" href="#">Date</a></li>
                                 </ul>
                             </div>
-                            <hr><table class="table table-hover" style="text-align:center" id="transactionsTable">
+                            <hr><table class="table table-hover" style="text-align:center" id="transactionTable">
                                 <thead>
                                 <tr>
                                     <th>Transaction ID</th>
@@ -97,7 +99,7 @@
                                 <tr>
                                     <td>000001</td>
                                     <td>Business</td>
-                                    <td>18/04/2019</td>
+                                    <td>2019-04-18</td>
                                     <td>$55</td>
                                     <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
                                     <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
@@ -105,7 +107,7 @@
                                 <tr>
                                     <td>000002</td>
                                     <td>Education</td>
-                                    <td>31/05/2019</td>
+                                    <td>2019-05-31</td>
                                     <td>$105</td>
                                     <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
                                     <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
@@ -113,7 +115,7 @@
                                 <tr>
                                     <td>000003</td>
                                     <td>ETC</td>
-                                    <td>25/07/2019</td>
+                                    <td>2019-07-25</td>
                                     <td>$75</td>
                                     <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
                                     <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
@@ -121,7 +123,7 @@
                                 <tr>
                                     <td>000004</td>
                                     <td>Personal</td>
-                                    <td>27/07/2019</td>
+                                    <td>2019-07-27</td>
                                     <td>$85</td>
                                     <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
                                     <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
@@ -129,7 +131,7 @@
                                 <tr>
                                     <td>000005</td>
                                     <td>Personal</td>
-                                    <td>01/09/2019</td>
+                                    <td>2019-09-01</td>
                                     <td>$205</td>
                                     <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
                                     <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
@@ -137,7 +139,7 @@
                                 <tr>
                                     <td>000006</td>
                                     <td>ETC</td>
-                                    <td>13/10/2019</td>
+                                    <td>2019-10-13</td>
                                     <td>$45</td>
                                     <td><a href="EditTransaction.html"><button style="border: none; background-color:transparent;"><i class="fa-solid fa-ellipsis"></i></button></a></td>
                                     <td><button onclick="confirmDelete(this)" style="border: none; background-color: transparent;"><i class="fa-solid fa-trash-can"></i></button></td>
@@ -186,7 +188,7 @@
             */
             function deleteRow(r) {
                 var i = r.parentNode.parentNode.rowIndex;
-                document.getElementById("transactionsTable").deleteRow(i);
+                document.getElementById("transactionTable").deleteRow(i);
             }
             /*
             The code below will ask confirmation from user
@@ -197,7 +199,51 @@
                     deleteRow(r)
                 }
             }
-        </script>
+            /*
+            The code below will display information recieved from user
+            */
+            function displayTransactions() {
+                var transactionData = localStorage.getItem("newTransaction");
 
+                if (transactionData) {
+                    var transaction = JSON.parse(transactionData);
+
+                    var table = document.getElementById("transactionTable");
+                    var newRow = table.insertRow();
+
+                    var invoiceIdCell = newRow.insertCell();
+                    invoiceIdCell.textContent = transaction.invoiceId;
+
+                    var categoryCell = newRow.insertCell();
+                    categoryCell.textContent = transaction.category;
+
+                    var dateCell = newRow.insertCell();
+                    dateCell.textContent = transaction.date;
+
+                    var priceCell = newRow.insertCell();
+                    priceCell.textContent = "$" + transaction.price;
+
+                    var editCell = newRow.insertCell();
+                    var editButton = document.createElement("a");
+                    editButton.href = "EditTransaction.html";
+                    var innerButton = document.createElement("button");
+                    innerButton.style.border = "none";
+                    innerButton.style.backgroundColor = "transparent";
+                    innerButton.innerHTML = '<i class="fas fa-ellipsis"></i>';
+                    editButton.appendChild(innerButton);
+                    editCell.appendChild(editButton);
+                    
+                    var deleteCell = newRow.insertCell();
+                    var deleteButton = document.createElement("button");
+                    deleteButton.style.border = "none";
+                    deleteButton.style.backgroundColor = "transparent";
+                    deleteButton.innerHTML = '<i class="fas fa-trash-alt"></i>';
+                    deleteButton.onclick = function() {
+                    confirmDelete(this);
+                    };
+                    deleteCell.appendChild(deleteButton);
+                }
+            }
+        </script>
     </body>
 </html>
