@@ -74,15 +74,15 @@
                     <hr><br>
                     <form>
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="invoiceIdInput" placeholder="Invoice Number">
+                            <input type="number" class="form-control" id="invoiceIdInput" placeholder="Invoice Number" required>
                             <label for="invoiceIdInput">Invoice Number</label>
                         </div>
                         <div class="form-floating">
-                            <input type="number" class="form-control" id="priceInput" placeholder="Price">
+                            <input type="number" class="form-control" id="priceInput" placeholder="Price" required>
                             <label for="priceInput">Price</label>
                         </div>
                         <div class="form-floating">
-                            <input type="date" class="form-control" id="dateInput" placeholder="Date">
+                            <input type="date" class="form-control" id="dateInput" placeholder="Date" required>
                             <label for="dateInput">Date</label>
                         </div>
                         <div class="form-floating">
@@ -100,7 +100,7 @@
                             <input class="form-control" type="file" id="formFile">
                             <div id="imageContainer" style="max-width:fit-content"></div> 
                         </div>
-                        <a href="PreviousTransaction.html" class="button" onclick="addTransaction()">Add</a>
+                        <a href="PreviousTransaction.html" class="button" onclick="return confirmTransaction()" onclick="addTransaction()">Add</a>
                     </form>
                 </center>
                 </div>
@@ -163,6 +163,18 @@
 
                 // Store transaction data in Local Storage
                 localStorage.setItem("newTransaction", JSON.stringify(transaction));
+            }
+            function confirmTransaction() {
+                var invoiceNumber = document.getElementById("invoiceIdInput").value;
+                var price = document.getElementById("priceInput").value;
+                var date = document.getElementById("dateInput").value;
+                var category = document.getElementById("categorySelect").value;
+                
+                // Check if any of the fields is empty or the category is not chosen
+                if (invoiceNumber === "" || price === "" || date === "" || category === "Choose") {
+                    alert("Please fill in all the required information.");
+                    return false;
+                }
             }
         </script>
     </body>
