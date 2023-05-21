@@ -26,29 +26,29 @@
         <!-- Start Sign in form -->
         <main class="form-signin w-100 m-auto">
             <div class="container min-vh-100 d-flex justify-content-center align-items-center">
-                <form>
+                <form id="registrationForm" onsubmit="return validateForm()">
                     <center>
                         <img class="mb-4" src="Images\logo.png" alt="Logo" width="160" height="140">
                         <h1 class="h3 mb-3 fw-normal">Please Register</h1>
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="First Name">
-                            <label for="floatingInput">First Name</label>
+                            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                            <label for="firstName">First Name</label>
                         </div>
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="floatingInput" placeholder="Last Name">
-                            <label for="floatingInput">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                            <label for="lastName">Last Name</label>
                         </div>
                         <div class="form-floating">
-                            <input type="date" class="form-control" id="floatingInput" placeholder="Date Of Birth">
-                            <label for="floatingInput">Date of Birth</label>
+                            <input type="date" class="form-control" id="dob" placeholder="Date Of Birth" required>
+                            <label for="dob">Date of Birth</label>
                         </div>
                         <div class="form-floating">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="Email">
-                            <label for="floatingInput">Email</label>    
+                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            <label for="email">Email</label>    
                         </div>
                         <div class="form-floating">
-                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                            <label for="floatingPassword">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password" required>
+                            <label for="password">Password</label>
                         </div>
                         <!-- check box -->
                         <div class="form-check">
@@ -58,14 +58,14 @@
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="Terms of service" id="Terms of service">
-                            <label class="form-check-label" for="Terms of service" style="font-size: smaller;">
+                            <input class="form-check-input" type="checkbox" value="Terms of service" id="agreeCheckbox">
+                            <label class="form-check-label" for="agreeCheckbox" style="font-size: smaller;">
                                 I agree all statements in <a href="#!">Terms of service</a>
                             </label>
                         </div>
                         <!-- end of check box -->
                         <!-- button -->
-                        <a href="homepage.html" class="w-100 btn btn-lg btn-primary" type="submit" style="background-color:rgb(65, 125, 238);">Register</a>
+                        <a href="homepage.html" class="w-100 btn btn-lg btn-primary" type="submit" style="background-color:rgb(65, 125, 238);" onclick="return validateForm()">Register</a>
                         <h6>Have an account already</h6>
                         <a href="index.html" class="w-100 btn btn-lg btn-primary" type="submit" style="background-color:rgb(65, 125, 238);">Sign in</a>
                         <!-- end of button -->
@@ -105,6 +105,23 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script>
+            function validateForm() {
+                var firstName = document.getElementById("firstName").value;
+                var lastName = document.getElementById("lastName").value;
+                var dob = document.getElementById("dob").value;
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+                var agreeCheckbox = document.getElementById("agreeCheckbox").checked;
 
+                if (firstName === "" || lastName === "" || dob === "" || email === "" || password === "" || !agreeCheckbox) {
+                    alert("Please fill in all the required information and agree to the terms and conditions.");
+                    return false;
+                }
+                window.location.href = "homepage.html";
+                // If all information is filled, allow the form submission
+                return true;
+            }
+        </script>
     </body>
 </html>
