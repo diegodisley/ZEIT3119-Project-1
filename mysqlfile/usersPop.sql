@@ -1,3 +1,4 @@
+-- Populate users table
 /*
 username: john.doe@example.com 				password:john
 username: jane.doe@example.com 				password:jane

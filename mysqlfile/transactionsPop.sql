@@ -1,3 +1,4 @@
+-- Populate transactions table
 INSERT INTO Transactions (invoice_number, user_id, date, amount, category) VALUES 
 (1, 1, '2017-01-01', 120.00, 'Personal'),
 (2, 1, '2012-02-15', 53.00, 'Business'),
